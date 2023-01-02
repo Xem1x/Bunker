@@ -52,6 +52,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/Home">Реєстрація</a></li>
+                        <li><a runat="server" href="~/index.html">index</a></li>
                     </ul>
                 </div>
             </div>

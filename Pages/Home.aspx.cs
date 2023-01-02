@@ -13,5 +13,11 @@ namespace BUNKER.Pages
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session["Name"] = TextBox1.Text;
+            Response.Redirect("Game.aspx");
+        }
     }
 }

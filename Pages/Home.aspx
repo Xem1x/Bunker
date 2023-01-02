@@ -3,8 +3,11 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ХУЙ</h1>
-        <h1>ХУЙ2</h1>
+        <asp:Label ID="Label1" runat="server" Font-Size="30pt" Text="Введи своє ім'я"></asp:Label>
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server" Height="39px" Width="240px"></asp:TextBox>
+        <br />
+        <asp:Button ID="Button1" runat="server" Height="47px" OnClick="Button1_Click" Text="Вхід" Width="240px" />
     </div>
 
 </asp:Content>
