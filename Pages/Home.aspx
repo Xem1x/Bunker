@@ -4,6 +4,7 @@
 
     <div class="jumbotron">
         <h1>ХУЙ</h1>
+        <h1>ХУЙ2</h1>
     </div>
 
 </asp:Content>
