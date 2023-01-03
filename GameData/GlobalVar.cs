@@ -7,29 +7,32 @@ using System.Web;
 namespace BUNKER
 {
     public static class GlobalVar
-    {
-        static int i = 0;
-        static List<Player> players= new List<Player>();
+    { 
+
+        static SortedDictionary<int, Player> players = new SortedDictionary<int, Player>();
+        
 
         public static void SetPlayers(Player inpt_player)
         {
-            players.Add(inpt_player);
+            int player_id = GetFirstFreeIdentificator();
+            players.Add(player_id, inpt_player);
         }
-        public static List<Player> GetPlayers()
+        public static SortedDictionary<int, Player> GetPlayers()
         {
            return players;
         }
-
-        public static int I
+        static int GetFirstFreeIdentificator()
         {
-            get
+            for(int i = 1 ; i <= players.Count;i++)
             {
-                return i;
+                if(!players.ContainsKey(i))
+                {
+                    return i;
+                }
+                
             }
-            set
-            {
-                i = value;
-            }
+            return players.Count + 1;
         }
+
     }
 }

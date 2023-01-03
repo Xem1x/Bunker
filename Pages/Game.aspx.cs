@@ -13,12 +13,13 @@ namespace BUNKER.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int position = GlobalVar.I++;
-            Label1.Text = Session["Name"].ToString();
+            
             ServHub co = new ServHub();
             Player player = new Player();
-            player.id = position;
-            Label2.Text = player.id.ToString();
+            GlobalVar.SetPlayers(player);
+            SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
+            player.name = Session["Name"].ToString();
+            Label2.Text = GlobalVar.GetPlayers()[1].name.ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
