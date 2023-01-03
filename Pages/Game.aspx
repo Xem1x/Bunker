@@ -1,59 +1,105 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Game.aspx.cs" Inherits="BUNKER.Pages.Game" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        
-        <asp:Panel ID="Panel1" runat="server" BackColor="#66FF99" Width="378px">
-            <asp:Label ID="Label1" runat="server" Font-Size="30pt" Text=" "></asp:Label><br />     
-            <div>
-                <a id ="Job" >
-                    <asp:Label ID="Label2" runat="server" Font-Size="30pt" Text="Професія "></asp:Label><br /> 
-                    <div> Лікар </div>
-                </a>
+    <div class="content-wrapper">
+        <div class="player-slider">
+            <div class="player-card-wrapper">
+                <div class="player-card-inner">
+                    <h3 class="player-name">Valera's hater</h3>
+                    <div class="param-name">Професія</div>
+                    <div class="param-value">Лікар</div>
+                    <div class="param-name">Біо характеристики</div>
+                    <div class="param-value revealed">Жінка, 29 р.</div>
+                    <div class="param-name">Хвороба</div>
+                    <div class="param-value">Дислексія</div>
+                    <div class="param-name">Фобія</div>
+                    <div class="param-value">Мегалофобія</div>
+                    <div class="param-name">Хобі</div>
+                    <div class="param-value">Музика</div>
+                    <div class="param-name">Доп. інформація</div>
+                    <div class="param-value">Має великий хуй</div>
+                    <div class="param-name">Знання</div>
+                    <div class="param-value">Знає в кого маленький хуй</div>
+                </div>
+                <div class="action-card use-card">
+                    <div class="card-name">Картка дії</div>
+                    <div class="card-description">Якась хуйня залупна, яку ніхто не буде читати, бо всі їбали рот автора і його намагання створити нормальну гру. Життя несправедливе, піду плакать.</div>
+                </div>
+                <div class="condition-card use-card">
+                    <div class="card-name">Картка умови</div>
+                    <div class="card-description">Якась хуйня залупна, яку ніхто не буде читати, бо всі їбали рот автора і його намагання створити нормальну гру. Життя несправедливе, піду плакать.</div>
+                </div>
             </div>
-            <br />
-            <div>
-                <a id ="Age" >
-                    <asp:Label ID="Label3" runat="server" Font-Size="30pt" Text="Вік "></asp:Label><br /> 
-                    <div> 20 </div>
-                </a>
+            <div class="player-card-wrapper">
+                <div class="player-card-inner">
+                    <div class="param-name">Професія</div>
+                    <div class="param-value">Лікар</div>
+                    <div class="param-name">Біо характеристики</div>
+                    <div class="param-value">Жінка, 29 р.</div>
+                    <div class="param-name">Хвороба</div>
+                    <div class="param-value">Дислексія</div>
+                    <div class="param-name">Фобія</div>
+                    <div class="param-value">Мегалофобія</div>
+                    <div class="param-name">Хобі</div>
+                    <div class="param-value">Музика</div>
+                    <div class="param-name">Доп. інформація</div>
+                    <div class="param-value">Має великий хуй</div>
+                    <div class="param-name">Знання</div>
+                    <div class="param-value">Знає в кого маленький хуй</div>
+                </div>
             </div>
-            <br />
-
-             <div>
-                <a id ="health" >
-                    <asp:Label ID="Label4" runat="server" Font-Size="30pt" Text="Хвороба"></asp:Label><br /> 
-                    <div> Хво </div>
-                </a>
+            <div class="player-card-wrapper">
+                <div class="player-card-inner">
+                    <div class="param-name">Професія</div>
+                    <div class="param-value">Лікар</div>
+                    <div class="param-name">Біо характеристики</div>
+                    <div class="param-value">Жінка, 29 р.</div>
+                    <div class="param-name">Хвороба</div>
+                    <div class="param-value">Дислексія</div>
+                    <div class="param-name">Фобія</div>
+                    <div class="param-value">Мегалофобія</div>
+                    <div class="param-name">Хобі</div>
+                    <div class="param-value">Музика</div>
+                    <div class="param-name">Доп. інформація</div>
+                    <div class="param-value">Має великий хуй</div>
+                    <div class="param-name">Знання</div>
+                    <div class="param-value">Знає в кого маленький хуй</div>
+                </div>
             </div>
-            <br />
-             <div>
-                <a id ="Phoby" >
-                    <asp:Label ID="Label5" runat="server" Font-Size="30pt" Text="Фобія"></asp:Label><br /> 
-                    <div> Фоб </div>
-                </a>
-            </div>
-            <br />
-             <div>
-                <a id ="info" >
-                    <asp:Label ID="Label6" runat="server" Font-Size="30pt" Text="Додаткова інформація"></asp:Label><br /> 
-                    <div> Додаткова інфо </div>
-                </a>
-            </div>
-            <br />
-             <div>
-                <a id ="knowlage" >
-                    <asp:Label ID="Label8" runat="server" Font-Size="30pt" Text="Знання"></asp:Label><br /> 
-                    <div> know </div>
-                </a>
-            </div>
-            <br />
-        </asp:Panel>
-        <br />
-
+        </div>
     </div>
-        
+    <!--Script references. -->
+    <!--Reference the jQuery library. -->
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <!--Reference the SignalR library. -->
+    <script src="../Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="signalr/hubs"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="../wwwroot/js/script.js"></script>
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript"> $(function () {
+       /* $(document).ready(function () {
+            $(".player-slider").append("<p id=*/<% = Session["Name"] %>/*>test</p>")
+        })
+        // Declare a proxy to reference the hub.
+        var game = $.connection.servHub;
+        // Create a function that the hub can call to broadcast messages.
+        chat.client.broadcastMessage = function (name, message) {
+
+        };
+        $('#displayname').val('*/<% = Session["Name"] %>/*');
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub.
+                    game.server.send();
+
+                });
+            });
+        });*/
+    </script>
 
 </asp:Content>
 

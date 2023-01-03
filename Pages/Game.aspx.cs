@@ -12,9 +12,9 @@ namespace BUNKER.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["Name"].ToString();
+/*            Label1.Text = Session["Name"].ToString();
             ServHub co = new ServHub();
-            Label2.Text = co.GetOnline().ToString();
+            Label2.Text = co.GetOnline().ToString();*/
         }
 
         protected void Button1_Click(object sender, EventArgs e)
