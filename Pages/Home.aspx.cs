@@ -18,7 +18,7 @@ namespace BUNKER.Pages
         {
             Session["Name"] = TextBox1.Text;
 
-            Response.Redirect("~/indexx.aspx");
+            Response.Redirect("~/Pages/Game.aspx");
         }
     }
 }
