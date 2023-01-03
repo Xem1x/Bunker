@@ -19,8 +19,7 @@ namespace BUNKER.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Button1.BackColor = System.Drawing.Color.Red;
-            Button1.Enabled= false;
+
         }
     }
 }

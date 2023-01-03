@@ -5,29 +5,49 @@
     <div class="jumbotron">
         
         <asp:Panel ID="Panel1" runat="server" BackColor="#66FF99" Width="378px">
-            <asp:Label ID="Label1" runat="server" Font-Size="30pt" Text=" "></asp:Label><br />
-            <asp:Label ID="Label2" runat="server" Font-Size="30pt" Text="Професія "></asp:Label><br />
-            <asp:Button ID="Button1" runat="server" Font-Size="20pt" Height="53px" OnClick="Button1_Click" Text="Лікар" Width="212px" />
+            <asp:Label ID="Label1" runat="server" Font-Size="30pt" Text=" "></asp:Label><br />     
+            <div>
+                <a id ="Job" >
+                    <asp:Label ID="Label2" runat="server" Font-Size="30pt" Text="Професія "></asp:Label><br /> 
+                    <div> Лікар </div>
+                </a>
+            </div>
             <br />
-            <asp:Label ID="Label3" runat="server" Font-Size="30pt" Text="Вік"></asp:Label>
+            <div>
+                <a id ="Age" >
+                    <asp:Label ID="Label3" runat="server" Font-Size="30pt" Text="Вік "></asp:Label><br /> 
+                    <div> 20 </div>
+                </a>
+            </div>
             <br />
-            <asp:Button ID="Button2" runat="server" Text="20" />
+
+             <div>
+                <a id ="health" >
+                    <asp:Label ID="Label4" runat="server" Font-Size="30pt" Text="Хвороба"></asp:Label><br /> 
+                    <div> Хво </div>
+                </a>
+            </div>
             <br />
-            <asp:Label ID="Label4" runat="server" Font-Size="30pt" Text="Хвороба"></asp:Label>
+             <div>
+                <a id ="Phoby" >
+                    <asp:Label ID="Label5" runat="server" Font-Size="30pt" Text="Фобія"></asp:Label><br /> 
+                    <div> Фоб </div>
+                </a>
+            </div>
             <br />
-            <asp:Button ID="Button3" runat="server" Font-Size="20pt" Text="Д" />
+             <div>
+                <a id ="info" >
+                    <asp:Label ID="Label6" runat="server" Font-Size="30pt" Text="Додаткова інформація"></asp:Label><br /> 
+                    <div> Додаткова інфо </div>
+                </a>
+            </div>
             <br />
-            <asp:Label ID="Label5" runat="server" Font-Size="30pt" Text="Фобія"></asp:Label>
-            <br />
-            <asp:Button ID="Button4" runat="server" Font-Size="20pt" Text="Button" />
-            <br />
-            <asp:Label ID="Label6" runat="server" Font-Size="28pt" Text="Додаткова інформація"></asp:Label>
-            <br />
-            <asp:Button ID="Button5" runat="server" Font-Size="20pt" Text="Button" />
-            <br />
-            <asp:Label ID="Label7" runat="server" Font-Size="30pt" Text="Знання"></asp:Label>
-            <br />
-            <asp:Button ID="Button6" runat="server" Font-Size="20pt" Text="Button" />
+             <div>
+                <a id ="knowlage" >
+                    <asp:Label ID="Label8" runat="server" Font-Size="30pt" Text="Знання"></asp:Label><br /> 
+                    <div> know </div>
+                </a>
+            </div>
             <br />
         </asp:Panel>
         <br />
