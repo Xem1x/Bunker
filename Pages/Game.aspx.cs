@@ -1,11 +1,15 @@
 ﻿using BUNKER.GameData;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace BUNKER.Pages
 {
@@ -19,7 +23,9 @@ namespace BUNKER.Pages
             GlobalVar.SetPlayers(player);
             SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
             player.name = Session["Name"].ToString();
-            Label2.Text = GlobalVar.GetPlayers()[1].name.ToString();
+
+            //("player_name").InnerText = GlobalVar.GetPlayers()[1].name.ToString(); 
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)

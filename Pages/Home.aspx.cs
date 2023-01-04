@@ -18,15 +18,13 @@ namespace BUNKER.Pages
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["Name"] = TextBox1.Text;
-            
-            Response.Redirect("~/Pages/Game.aspx");
+
+            Response.Redirect("Game.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Player initPlayerData = new Player();
-            initPlayerData.languageplayer = new Language("EN");
-            Label1.Text = initPlayerData.languageplayer.Settings;
+
         }
     }
 }

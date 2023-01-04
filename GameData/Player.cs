@@ -8,6 +8,5 @@ namespace BUNKER.GameData
     public class Player
     {
         public string name { get; set; }
-        public Language languageplayer { get; set; }
     }
 }
