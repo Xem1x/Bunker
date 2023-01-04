@@ -17,6 +17,11 @@ namespace BUNKER
             int player_id = GetFirstFreeIdentificator();
             players.Add(player_id, inpt_player);
         }
+
+        public static int GetPlayersAmount()
+        {
+            return players.Count;
+        }
         public static SortedDictionary<int, Player> GetPlayers()
         {
            return players;

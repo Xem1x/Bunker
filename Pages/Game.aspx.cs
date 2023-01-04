@@ -17,15 +17,11 @@ namespace BUNKER.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             ServHub co = new ServHub();
             Player player = new Player();
             GlobalVar.SetPlayers(player);
-            SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
             player.name = Session["Name"].ToString();
-
-            //("player_name").InnerText = GlobalVar.GetPlayers()[1].name.ToString(); 
-
+            Session["playersAmount"] = Convert.ToInt32(Application["TotalOnlineUsers"])-1;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
