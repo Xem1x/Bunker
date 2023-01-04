@@ -24,8 +24,11 @@ namespace BUNKER.Pages
             SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
             player.name = Session["Name"].ToString();
 
-            //("player_name").InnerText = GlobalVar.GetPlayers()[1].name.ToString(); 
-
+            Label1.Text = GlobalVar.GetPlayers()[1].name.ToString(); 
+            if (Convert.ToInt32(Application["TotalOnlineUsers"]) > 1)
+            {
+                Label2.Text = GlobalVar.GetPlayers()[2].name.ToString();
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

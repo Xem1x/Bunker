@@ -21,6 +21,8 @@ namespace BUNKER
         {
            return players;
         }
+
+        
         static int GetFirstFreeIdentificator()
         {
             for(int i = 1 ; i <= players.Count;i++)
@@ -29,7 +31,6 @@ namespace BUNKER
                 {
                     return i;
                 }
-                
             }
             return players.Count + 1;
         }

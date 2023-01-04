@@ -1,11 +1,12 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Game.aspx.cs" Inherits="BUNKER.Pages.Game" %>
+﻿<%@ Page Title="Game Page" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Game.aspx.cs" Inherits="BUNKER.Pages.Game" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-wrapper">
         <div class="player-slider">
             <div class="player-card-wrapper">
                 <div class="player-card-inner">
-                    <h3 class="player-name" id ="player_name">Valera's hater</h3>
+                    <h3 class="player-name" id ="player_name">Valera's hater<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                    </h3>
                     <a id ="Job" >
                     <div class="param-name">Професія</div>
                     <div class="param-value">Лікар</div>
@@ -46,7 +47,8 @@
             </div>
             <div class="player-card-wrapper">
                                <div class="player-card-inner">
-                    <h3 class="player-name" id ="player_name2">Valera's hater</h3>
+                    <h3 class="player-name" id ="player_name2">Valera's hater<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                   </h3>
                     <a id ="Job2" >
                     <div class="param-name">Професія</div>
                     <div class="param-value">Лікар</div>
@@ -123,14 +125,14 @@
 
     <script src="../wwwroot/js/script.js"></script>
     <!--Add script to update the page and send messages.-->
-    <script type="text/javascript"> $(function () {
-       /* $(document).ready(function () {
+<%--    <script type="text/javascript"> $(function () {
+        $(document).ready(function () {
             $(".player-slider").append("<p id=*/<% = Session["Name"] %>/*>test</p>")
         })
         // Declare a proxy to reference the hub.
         var game = $.connection.servHub;
         // Create a function that the hub can call to broadcast messages.
-        chat.client.broadcastMessage = function (name, message) {
+        game.client.broadcastMessage = function (name, message) {
 
         };
         $('#displayname').val('*/<% = Session["Name"] %>/*');
@@ -142,8 +144,8 @@
 
                 });
             });
-        });*/
-    </script>
+        });
+    </script>--%>
 
 </asp:Content>
 
