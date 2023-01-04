@@ -320,6 +320,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="GameData\GlobalVar.cs" />
+    <Compile Include="GameData\Language.cs" />
     <Compile Include="GameData\Player.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
