@@ -22,15 +22,11 @@ namespace BUNKER.Pages
             Player player = new Player();
             GlobalVar.SetPlayers(player);
             SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
-            player.name = Session["Name"].ToString();
+           // player.name.set = Session["Name"].ToString();
 
-            //("player_name").InnerText = GlobalVar.GetPlayers()[1].name.ToString(); 
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
 
         }
+
+        
     }
 }
