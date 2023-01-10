@@ -12,12 +12,7 @@ namespace BUNKER
     {
         public void Send(string name, string message)
         {
-            // Call the broadcastMessage method to update clients.
             Clients.All.broadcastMessage(name, message);
-        }
-        public int GetOnline()
-        {
-            return GlobalHost.DependencyResolver.Resolve<ITransportHeartbeat>().GetConnections().Count;
         }
     }
 }

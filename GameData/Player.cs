@@ -8,5 +8,9 @@ namespace BUNKER.GameData
     public class Player
     {
         public string name { get; set; }
+
+        public string job { get; set; }
+
+        public string bio { get; set; }
     }
 }

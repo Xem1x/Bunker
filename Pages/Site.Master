@@ -16,7 +16,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="../wwwroot/css/styles.css" />
+    <link href="../wwwroot/css/styles.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
@@ -53,6 +53,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/Game">Game</a></li>
+                        <li><a runat="server" href="~/Pages/Voting">Voting</a></li>
                     </ul>
                 </div>
             </div>
