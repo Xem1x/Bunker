@@ -17,6 +17,9 @@ namespace BUNKER.GameData
         static SqlDataReader reader;
         static SQLClient()
         {
+            //  cmd paste 
+            //  sqllocaldb info MSSQLLocalDB
+            //  connetionString = "Data Source= np:\\.\pipe\LOCALDB#F920703E\tsql\query;Initial Catalog=BunkerDB;Integrated Security=True";
             connetionString = "Data Source= (LocalDB)\\MSSQLLocalDB;Initial Catalog=BunkerDB;Integrated Security=True";
         }
         static public void Connect()
@@ -28,7 +31,7 @@ namespace BUNKER.GameData
                 connected = true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

@@ -122,8 +122,28 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script src="../wwwroot/js/script.js"></script>
+
+     <%--<script>
+         $(function () {
+             // Reference the auto-generated proxy for the hub.  
+             var userActivity = $.connection.servHub;
+
+             // Create a function that the hub can call back to display messages.
+             userActivity.client.updateUsersOnlineCount = function (count) {
+                 // Add the message to the page. 
+                 $('#usersCount').text(count);
+             };
+
+             $.connection.hub.start();
+         });
+    </script>--%>
+
+
+
+
+
     <!--Add script to update the page and send messages.-->
-    <script type="text/javascript"> $(function () {
+   <%-- <script type="text/javascript"> $(function () {
        /* $(document).ready(function () {
             $(".player-slider").append("<p id=*/<% = Session["Name"] %>/*>test</p>")
         })
@@ -143,7 +163,7 @@
                 });
             });
         });*/
-    </script>
+    </script>--%>
 
 </asp:Content>
 

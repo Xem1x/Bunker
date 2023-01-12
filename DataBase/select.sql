@@ -1,0 +1,1 @@
+Select Characteristics_1 from Test_table

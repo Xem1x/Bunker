@@ -2,6 +2,7 @@
 using Microsoft.AspNet.SignalR;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,7 @@ namespace BUNKER.GameData
         /// 
         /// 
         /// 
+        
         static Player_Generator()
         {
             
@@ -34,6 +36,8 @@ namespace BUNKER.GameData
         {
             InitSqlRequest();
             var res_list = GetResults();
+            var temp = res_list.Where(i => !GlobalVar.alreadyAssignedCharactr.Any(e => i.Contains(e)));
+            res_list = temp.ToList();
             return GenerateRandomFromList(res_list);
         }
 
@@ -41,7 +45,9 @@ namespace BUNKER.GameData
         static public string GetJob()
         {
             request = "Select Characteristics_1 from Test_table";
-            return GenerateCharacteristic();
+            var temp = GenerateCharacteristic();
+            GlobalVar.alreadyAssignedCharactr.Add(temp);
+            return temp;
         }
 
 

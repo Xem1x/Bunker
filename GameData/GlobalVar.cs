@@ -9,6 +9,17 @@ namespace BUNKER
     public static class GlobalVar
     { 
 
+        static public List<string> alreadyAssignedCharactr = new List<string>() { };
+        public static void SetAssignedChar(string inpt)
+        {
+            alreadyAssignedCharactr.Add(inpt);
+        }
+        public static List<string> GetAssignedChar()
+        {
+            return alreadyAssignedCharactr;
+        }
+
+
         static SortedDictionary<int, Player> players = new SortedDictionary<int, Player>();
         
 
@@ -20,6 +31,10 @@ namespace BUNKER
         public static SortedDictionary<int, Player> GetPlayers()
         {
            return players;
+        }
+        public static int GetPlayersAmount()
+        {
+            return players.Count;
         }
         static int GetFirstFreeIdentificator()
         {
