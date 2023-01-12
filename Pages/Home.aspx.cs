@@ -19,6 +19,7 @@ namespace BUNKER.Pages
         {
             Session["Name"] = TextBox1.Text;
             Session["Xui"] = System.Security.Principal.WindowsIdentity.GetCurrent().Token.ToString();
+            
             Response.Redirect("Game.aspx");
         }
     }

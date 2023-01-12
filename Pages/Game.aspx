@@ -72,36 +72,36 @@
                         </a>\
                         <a id ="Bio" >\
                         <div class="param-name">Біо характеристики</div>\
-                        <div class="param-value revealed">---, 29 р.</div>\
+                        <div class="param-value revealed">---</div>\
                         </a>\
                         <a id ="Heath" >\
                         <div class="param-name">Хвороба</div>\
-                        <div class="param-value">Дислексія</div>\
+                        <div class="param-value"></div>\
                         </a>\
                         <a id ="Phoby" >\
                         <div class="param-name">Фобія</div>\
-                        <div class="param-value">Мегалофобія</div>\
+                        <div class="param-value"></div>\
                         </a>\
                         <a id ="Hoby" >\
                         <div class="param-name">Хобі</div>\
-                        <div class="param-value">Музика</div>\
+                        <div class="param-value"></div>\
                         </a>\
                         <a id ="Dop_info" >\
                         <div class="param-name">Доп. інформація</div>\
-                        <div class="param-value">Має великий хуй</div>\
+                        <div class="param-value"></div>\
                         </a>\
                         <a id ="knowlage" >\
                         <div class="param-name">Знання</div>\
-                        <div class="param-value">Знає в кого маленький хуй</div>\
+                        <div class="param-value"></div>\
                         </a>\
                     </div>\
                     <div class= "action-card use-card" >\
                         <div class="card-name">Картка дії</div>\
-                        <div class="card-description">Якась хуйня</div>\
+                        <div class="card-description"></div>\
                     </div>\
                     <div class="condition-card use-card">\
                         <div class="card-name">Картка умови</div>\
-                        <div class="card-description">Якась.</div>\
+                        <div class="card-description"></div>\
                     </div >\
                </div > ')
 
