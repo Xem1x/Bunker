@@ -20,7 +20,7 @@ namespace BUNKER.Pages
             {
                 for (int i =1; i <= Convert.ToInt32(Application["TotalOnlineUsers"]); i++)
                 {
-                    DropDownList1.Items.Add(GlobalVar.GetPlayers()[i].name.ToString());
+                    DropDownList1.Items.Add(GlobalVar.GetPlayers()[i].username.ToString());
                 }
             }
         }

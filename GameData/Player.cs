@@ -7,10 +7,19 @@ namespace BUNKER.GameData
 {
     public class Player
     {
-        public string name { get; set; }
+        int user_id { get; set; }
 
-        public string job { get; set; }
+        public string username { get; set; }
 
-        public string bio { get; set; }
+        public string client_id { get; set; }
+        
+        string health { get; set; }
+        string job { get; set; }
+        string phobia { get; set; }
+        string hobby { get; set; }
+        string additional_info { get; set; }
+        string knowledge { get; set; }
+        string luggage { get; set; }
+
     }
 }

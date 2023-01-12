@@ -19,19 +19,18 @@ namespace BUNKER.Pages
         {
             Random rnd = new Random();
             int job = rnd.Next(1, 13);
-            int bio = rnd.Next(1, 13);
-            ServHub co = new ServHub();
+            int health = rnd.Next(1, 13);
+            UserConnectionHub co = new UserConnectionHub();
             Player player = new Player();
             GlobalVar.SetPlayers(player);
             SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
-            player.name = Session["Name"].ToString();
-            player.job = job.ToString();
-            player.bio = bio.ToString(); 
-        }
+            player.username = Session["Username"].ToString();
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+            //player.name.set = Session["Name"].ToString();
+
 
         }
+
+        
     }
 }
