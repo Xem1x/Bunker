@@ -15,68 +15,83 @@ namespace BUNKER
     [HubName("userConnectionHub")]
     public class UserConnectionHub : Hub
     {
-        public void Send(string name, string message)
+
+        //public int GetOnline()
+        //{
+        //    return GlobalHost.DependencyResolver.Resolve<ITransportHeartbeat>().GetConnections().Count;
+        //}
+
+        static List<Player> players = new List<Player>();
+
+        public static void SetPlayers(Player inpt_player)
         {
-            Clients.All.broadcastMessage(name, message);
+
+            players.Add(inpt_player);
         }
-        public int GetOnline()
+        public static List<Player> GetPlayers()
         {
-            return GlobalHost.DependencyResolver.Resolve<ITransportHeartbeat>().GetConnections().Count;
+            return players;
+        }
+        public static int GetPlayersAmount()
+        {
+            return players.Count;
+        }
+        static int GetFirstFreeIdentificator()
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] == null)
+                {
+                    return i;
+                }
+
+            }
+            return players.Count + 1;
         }
 
-        public static List<string> Users = new List<string>();
 
-       
-        public void Send(int count)
+
+
+
+        public void Send(string name)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            context.Clients.All.updateUsersOnlineCount(count);
+            context.Clients.All.updateUsersOnlineCount(name);
         }
-
-        public override System.Threading.Tasks.Task OnConnected()
+        public void Add(string name)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
+            context.Clients.All.AddMessage("added "/* + GetPlayersAmount()*/);
+        }
+        public void Connect(string username)
         {
             string clientId = GetClientId();
+            int user_id = GetFirstFreeIdentificator();
+            Player player = new Player();
+            player.client_id = clientId;
+            player.user_id = user_id;
+            player.username = username;
 
+            players.Add(player);
+            string s1 = player.username + " id: " + player.user_id + " connection id: " + player.client_id;
+            Send(s1);
 
-
-
-            if (Users.IndexOf(clientId) == -1)
-            {
-                Users.Add(clientId);
-            }
-
-            // Send the current count of users
-            Send(Users.Count);
+        }
+        public override System.Threading.Tasks.Task OnConnected()
+        {
 
             return base.OnConnected();
         }
 
         public override System.Threading.Tasks.Task OnReconnected()
         {
-            string clientId = GetClientId();
-            if (Users.IndexOf(clientId) == -1)
-            {
-                Users.Add(clientId);
-            }
 
-            // Send the current count of users
-            Send(Users.Count);
 
             return base.OnReconnected();
         }
 
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
-            string clientId = GetClientId();
-
-            if (Users.IndexOf(clientId) > -1)
-            {
-                Users.Remove(clientId);
-            }
-
-            // Send the current count of users
-            Send(Users.Count);
-
             return base.OnDisconnected(stopCalled);
         }
 

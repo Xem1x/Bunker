@@ -11,7 +11,7 @@ namespace BUNKER
 {
     public class Global : HttpApplication
     {
-        public readonly UserConnectionHub servHub = new UserConnectionHub();
+        public readonly UserConnectionHub userConnectionHub = new UserConnectionHub();
 
         void Application_Start(object sender, EventArgs e)
         {

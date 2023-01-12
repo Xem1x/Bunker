@@ -20,7 +20,7 @@ namespace BUNKER.Pages
         {
             Session["Username"] = TextBox1.Text;
 
-            Response.Redirect("Game.aspx");
+            Response.Redirect("TestGenerator.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)

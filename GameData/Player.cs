@@ -7,7 +7,7 @@ namespace BUNKER.GameData
 {
     public class Player
     {
-        int user_id { get; set; }
+        public int user_id { get; set; }
 
         public string username { get; set; }
 

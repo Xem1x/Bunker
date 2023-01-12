@@ -10,7 +10,7 @@ namespace BUNKER
 {
     public class Startup
     {
-        readonly UserConnectionHub _servHub = new UserConnectionHub();
+        readonly UserConnectionHub _userConnectionHub = new UserConnectionHub();
         public void Configuration(IAppBuilder app)
         {
             // Any connection or hub wire up and configuration should go here

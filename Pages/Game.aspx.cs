@@ -20,8 +20,8 @@ namespace BUNKER.Pages
             var s_name = Session["Username"].ToString();
             //add custom constructor and pass variables through it
             Player player = new Player();
-            GlobalVar.SetPlayers(player);
-            SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
+            //GlobalVar.SetPlayers(player);
+            //SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
             //player.name.set = Session["Name"].ToString();
 
 
