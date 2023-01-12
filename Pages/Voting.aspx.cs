@@ -23,14 +23,13 @@ namespace BUNKER.Pages
                     DropDownList1.Items.Add(GlobalVar.GetPlayers()[i].name.ToString());
                 }
             }
-            
         }
 
         protected void q1_Click(object sender, EventArgs e)
         {
            Voting_play.voting(DropDownList1.SelectedItem.Text.ToString());
            //Q1.InnerText = "Xui";
-           Q1.Visible = false;
+           //Q1.Visible = false;
         }
         //protected void Button1_Click(object sender, EventArgs e)
         //{

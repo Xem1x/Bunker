@@ -2,116 +2,48 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-wrapper">
-        <div class="player-slider">
-            <div class="player-card-wrapper">
-                <div class="player-card-inner">
-                    <h3 class="player-name" id ="player_name">Valera's hater<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                    </h3>
-                    <a id ="Job" >
-                    <div class="param-name">Професія</div>
-                    <div class="param-value">Лікар</div>
-                    </a>
-                    <a id ="Bio" >
-                    <div class="param-name">Біо характеристики</div>
-                    <div class="param-value revealed">Жінка, 29 р.</div>
-                    </a>
-                    <a id ="Heath" >
-                    <div class="param-name">Хвороба</div>
-                    <div class="param-value">Дислексія</div>
-                    </a>
-                    <a id ="Phoby" >
-                    <div class="param-name">Фобія</div>
-                    <div class="param-value">Мегалофобія</div>
-                    </a>
-                    <a id ="Hoby" >
-                    <div class="param-name">Хобі</div>
-                    <div class="param-value">Музика</div>
-                    </a>
-                    <a id ="Dop_info" >
-                    <div class="param-name">Доп. інформація</div>
-                    <div class="param-value">Має великий хуй</div>
-                    </a>
-                    <a id ="knowlage" >
-                    <div class="param-name">Знання</div>
-                    <div class="param-value">Знає в кого маленький хуй</div>
-                    </a>
-                </div>
-                <div class="action-card use-card">
-                    <div class="card-name">Картка дії</div>
-                    <div class="card-description">Якась хуйня залупна, яку ніхто не буде читати, бо всі їбали рот автора і його намагання створити нормальну гру. Життя несправедливе, піду плакать.</div>
-                </div>
-                <div class="condition-card use-card">
-                    <div class="card-name">Картка умови</div>
-                    <div class="card-description">Якась хуйня залупна, яку ніхто не буде читати, бо всі їбали рот автора і його намагання створити нормальну гру. Життя несправедливе, піду плакать.</div>
-                </div>
-            </div>
-            <div class="player-card-wrapper">
-                               <div class="player-card-inner">
-                    <h3 class="player-name" id ="player_name2">Valera's hater<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                                   </h3>
-                    <a id ="Job2" >
-                    <div class="param-name">Професія</div>
-                    <div class="param-value">Лікар</div>
-                    </a>
-                    <a id ="Bio2" >
-                    <div class="param-name">Біо характеристики</div>
-                    <div class="param-value revealed">Жінка, 29 р.</div>
-                    </a>
-                    <a id ="Heath2" >
-                    <div class="param-name">Хвороба</div>
-                    <div class="param-value">Дислексія</div>
-                    </a>
-                    <a id ="Phoby2" >
-                    <div class="param-name">Фобія</div>
-                    <div class="param-value">Мегалофобія</div>
-                    </a>
-                    <a id ="Hoby2" >
-                    <div class="param-name">Хобі</div>
-                    <div class="param-value">Музика</div>
-                    </a>
-                    <a id ="Dop_info2" >
-                    <div class="param-name">Доп. інформація</div>
-                    <div class="param-value">Має великий хуй</div>
-                    </a>
-                    <a id ="knowlage2" >
-                    <div class="param-name">Знання</div>
-                    <div class="param-value">Знає в кого маленький хуй</div>
-                    </a>
-                </div>
-            </div>
-            <div class="player-card-wrapper">
-                               <div class="player-card-inner">
-                    <h3 class="player-name" id ="player_name3">Valera's hater</h3>
-                    <a id ="Job3" >
-                    <div class="param-name">Професія</div>
-                    <div class="param-value">Лікар</div>
-                    </a>
-                    <a id ="Bio3" >
-                    <div class="param-name">Біо характеристики</div>
-                    <div class="param-value revealed">Жінка, 29 р.</div>
-                    </a>
-                    <a id ="Heath3" >
-                    <div class="param-name">Хвороба</div>
-                    <div class="param-value">Дислексія</div>
-                    </a>
-                    <a id ="Phoby3" >
-                    <div class="param-name">Фобія</div>
-                    <div class="param-value">Мегалофобія</div>
-                    </a>
-                    <a id ="Hoby3" >
-                    <div class="param-name">Хобі</div>
-                    <div class="param-value">Музика</div>
-                    </a>
-                    <a id ="Dop_info3" >
-                    <div class="param-name">Доп. інформація</div>
-                    <div class="param-value">Має великий хуй</div>
-                    </a>
-                    <a id ="knowlage3" >
-                    <div class="param-name">Знання</div>
-                    <div class="param-value">Знає в кого маленький хуй</div>
-                    </a>
-                </div>
-            </div>
+      <div class="player-slider">
+          <div class="player-card-wrapper" id = "<%=BUNKER.GlobalVar.GetPlayers()[Convert.ToInt32(Application["TotalOnlineUsers"])].name.ToString()%>">
+                    <div class="player-card-inner">
+                        <h3 class= "player-name" id = "player_name" > <% = BUNKER.GlobalVar.GetPlayers()[Convert.ToInt32(Application["TotalOnlineUsers"])].name.ToString() %></h3> 
+                        <a id = "Job" >
+                        <div class="param-name">Професія</div>
+                        <div class="param-value"><% = BUNKER.GlobalVar.GetPlayers()[Convert.ToInt32(Application["TotalOnlineUsers"])].job.ToString() %></div>
+                        </a>
+                        <a id ="Bio" >
+                        <div class="param-name">Біо характеристики</div>
+                        <div class="param-value revealed"><% = BUNKER.GlobalVar.GetPlayers()[Convert.ToInt32(Application["TotalOnlineUsers"])].bio.ToString() %>, 29 р.</div>
+                        </a>
+                        <a id ="Heath" >
+                        <div class="param-name">Хвороба</div>
+                        <div class="param-value">Дислексія</div>
+                        </a>
+                        <a id ="Phoby" >
+                        <div class="param-name">Фобія</div>
+                        <div class="param-value">Мегалофобія</div>
+                        </a>
+                        <a id ="Hoby" >
+                        <div class="param-name">Хобі</div>
+                        <div class="param-value">Музика</div>
+                        </a>
+                        <a id ="Dop_info" >
+                        <div class="param-name">Доп. інформація</div> 
+                        <div class="param-value">Має великий хуй</div>
+                        </a>
+                        <a id ="knowlage" >
+                        <div class="param-name">Знання</div>
+                        <div class="param-value">Знає в кого маленький хуй</div>
+                        </a>
+                    </div>
+                    <div class= "action-card use-card" >
+                        <div class="card-name">Картка дії</div>
+                        <div class="card-description">Якась хуйня</div>
+                    </div>
+                    <div class="condition-card use-card">
+                        <div class="card-name">Картка умови</div>
+                        <div class="card-description">Якась.</div>
+                    </div >
+               </div >
         </div>
     </div>
     <!--Script references. -->
@@ -125,27 +57,66 @@
 
     <script src="../wwwroot/js/script.js"></script>
     <!--Add script to update the page and send messages.-->
-<%--    <script type="text/javascript"> $(function () {
-        $(document).ready(function () {
-            $(".player-slider").append("<p id=*/<% = Session["Name"] %>/*>test</p>")
-        })
-        // Declare a proxy to reference the hub.
-        var game = $.connection.servHub;
-        // Create a function that the hub can call to broadcast messages.
-        game.client.broadcastMessage = function (name, message) {
+    <script type="text/javascript"> $(function () {
+     var game = $.connection.servHub;
+         $(document).ready(function () {
+             console.log(<% = Application["TotalOnlineUsers"] %>);
+           <%if (Convert.ToInt32(Application["TotalOnlineUsers"]) >= 2) {
+             for(int i = 1; i < Convert.ToInt32(Application["TotalOnlineUsers"]); i++) { %>
+             $(".player-slider").append('<div class="player-card-wrapper" id = "<%=i%>">\
+                    <div class="player-card-inner">\
+                        <h3 class= "player-name" id = "player_name" > <% = BUNKER.GlobalVar.GetPlayers()[i].name.ToString() %></h3> \
+                        <a id = "Job" >\
+                        <div class="param-name">Професія</div>\
+                        <div class="param-value">---</div>\
+                        </a>\
+                        <a id ="Bio" >\
+                        <div class="param-name">Біо характеристики</div>\
+                        <div class="param-value revealed">---, 29 р.</div>\
+                        </a>\
+                        <a id ="Heath" >\
+                        <div class="param-name">Хвороба</div>\
+                        <div class="param-value">Дислексія</div>\
+                        </a>\
+                        <a id ="Phoby" >\
+                        <div class="param-name">Фобія</div>\
+                        <div class="param-value">Мегалофобія</div>\
+                        </a>\
+                        <a id ="Hoby" >\
+                        <div class="param-name">Хобі</div>\
+                        <div class="param-value">Музика</div>\
+                        </a>\
+                        <a id ="Dop_info" >\
+                        <div class="param-name">Доп. інформація</div>\
+                        <div class="param-value">Має великий хуй</div>\
+                        </a>\
+                        <a id ="knowlage" >\
+                        <div class="param-name">Знання</div>\
+                        <div class="param-value">Знає в кого маленький хуй</div>\
+                        </a>\
+                    </div>\
+                    <div class= "action-card use-card" >\
+                        <div class="card-name">Картка дії</div>\
+                        <div class="card-description">Якась хуйня</div>\
+                    </div>\
+                    <div class="condition-card use-card">\
+                        <div class="card-name">Картка умови</div>\
+                        <div class="card-description">Якась.</div>\
+                    </div >\
+               </div > ')
 
-        };
-        $('#displayname').val('*/<% = Session["Name"] %>/*');
-            // Start the connection.
-            $.connection.hub.start().done(function () {
-                $('#sendmessage').click(function () {
-                    // Call the Send method on the hub.
-                    game.server.send();
+           <% } %>
+             <% } %>
+             $(".player-slider").slick({
+                 slidesToShow: 1,
+                 prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+                 nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
+             })
 
-                });
-            });
-        });
-    </script>--%>
+         })
+ });
+
+    </script>
 
 </asp:Content>
 

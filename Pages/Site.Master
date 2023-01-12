@@ -16,7 +16,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="../wwwroot/css/styles.css" />
+    <link href="../wwwroot/css/styles.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">

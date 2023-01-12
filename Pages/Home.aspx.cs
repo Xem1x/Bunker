@@ -12,19 +12,14 @@ namespace BUNKER.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Label1.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Token.ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["Name"] = TextBox1.Text;
-
+            Session["Xui"] = System.Security.Principal.WindowsIdentity.GetCurrent().Token.ToString();
             Response.Redirect("Game.aspx");
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
