@@ -21,65 +21,80 @@ namespace BUNKER
         //    return GlobalHost.DependencyResolver.Resolve<ITransportHeartbeat>().GetConnections().Count;
         //}
 
-        static List<Player> players = new List<Player>();
-
-        public static void SetPlayers(Player inpt_player)
+        public string GetClientId()
         {
-
-            players.Add(inpt_player);
-        }
-        public static List<Player> GetPlayers()
-        {
-            return players;
-        }
-        public static int GetPlayersAmount()
-        {
-            return players.Count;
-        }
-        static int GetFirstFreeIdentificator()
-        {
-            for (int i = 0; i < players.Count; i++)
+            string clientId = "";
+            if (Context.QueryString["clientId"] != null)
             {
-                if (players[i] == null)
-                {
-                    return i;
-                }
-
+                // clientId passed from application 
+                clientId = this.Context.QueryString["clientId"];
             }
-            return players.Count + 1;
+
+            if (string.IsNullOrEmpty(clientId.Trim()))
+            {
+                clientId = Context.ConnectionId;
+            }
+
+            return clientId;
         }
-
-
-
-
 
         public void Send(string name)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
             context.Clients.All.updateUsersOnlineCount(name);
         }
-        public void Add(string name)
+        public void AddCard(int user_id,string name)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            context.Clients.All.AddMessage("added "/* + GetPlayersAmount()*/);
+            context.Clients.All.AddCard(user_id, name);
         }
         public void Connect(string username)
         {
-            string clientId = GetClientId();
-            int user_id = GetFirstFreeIdentificator();
-            Player player = new Player();
-            player.client_id = clientId;
-            player.user_id = user_id;
-            player.username = username;
+            if (!UserIsLoggedIn(username))
+            {
+                string clientId = GetClientId();
+                int user_id = GlobalVar.GetFirstFreeIdentificator();
+                Player player = new Player();
+                player.client_id = clientId;
+                player.user_id = user_id;
+                player.username = username;
 
-            players.Add(player);
-            string s1 = player.username + " id: " + player.user_id + " connection id: " + player.client_id;
-            Send(s1);
-
+                GlobalVar.SetPlayers(player);
+                AddCard(player.user_id, player.username);
+            }
         }
-        public override System.Threading.Tasks.Task OnConnected()
+        bool UserIsLoggedIn(string inpt_username)
+        {
+            //fix this to bottom form
+            //return GlobalVar.GetPlayers().Contains(new Player { username = inpt_username });
+            for (int i = 0; i < GlobalVar.GetPlayers().Count; i++)
+            {
+                if (GlobalVar.GetPlayers()[i].username == inpt_username)
+                { 
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        public void LoadAllCards()
+        {
+            for (int i = 0; i < GlobalVar.GetPlayers().Count; i++)
+            {
+                AddCard(GlobalVar.GetPlayers()[i].user_id, GlobalVar.GetPlayers()[i].username);
+
+            }
+        }
+
+        public void LoadOwnCharacteristics()
         {
 
+        }
+
+        public override System.Threading.Tasks.Task OnConnected()
+        {
+            
             return base.OnConnected();
         }
 
@@ -95,25 +110,7 @@ namespace BUNKER
             return base.OnDisconnected(stopCalled);
         }
 
-        public string GetClientId()
-        {
-            string clientId = "";
-            if (Context.QueryString["clientId"] != null)
-            {
-                // clientId passed from application 
-                clientId = this.Context.QueryString["clientId"];
-            }
-
-            
-
-
-            if (string.IsNullOrEmpty(clientId.Trim()))
-            {
-                clientId = Context.ConnectionId;
-            }
-
-            return clientId;
-        }
+        
     }
 }
 

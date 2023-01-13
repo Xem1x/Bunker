@@ -36,7 +36,7 @@ h3{
     display: flex;
     flex-direction: column;
 }
-.content-wrapper{
+.content-wrapper {
     margin: auto 0;
 }
 .player-slider{
@@ -110,3 +110,23 @@ h3{
         background-position: center center;
     }
 }
+
+
+
+.menu {
+    display: flex;
+    width: 200px;
+    height: 500px;
+    border: solid red;
+    transition: 2s;
+}
+
+#menu {
+    /*     display: none; */
+    left: -250px;
+    position: absolute;
+}
+
+.slide-in-left {
+}
+

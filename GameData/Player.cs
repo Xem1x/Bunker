@@ -12,10 +12,9 @@ namespace BUNKER.GameData
         public string username { get; set; }
 
         public string client_id { get; set; }
-
-
-        string job { get; set; }
+        
         string health { get; set; }
+        string job { get; set; }
         string phobia { get; set; }
         string hobby { get; set; }
         string additional_info { get; set; }

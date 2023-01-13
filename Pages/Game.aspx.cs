@@ -17,11 +17,9 @@ namespace BUNKER.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var s_name = Session["Username"].ToString();
-            //add custom constructor and pass variables through it
-            Player player = new Player();
-            //GlobalVar.SetPlayers(player);
-            //SortedDictionary<int, Player> pl = GlobalVar.GetPlayers();
+
+            
+            
             //player.name.set = Session["Name"].ToString();
 
 

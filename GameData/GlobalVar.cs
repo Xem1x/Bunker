@@ -19,11 +19,37 @@ namespace BUNKER
             return alreadyAssignedCharactr;
         }
 
+        static List<Player> players = new List<Player>();
 
-        
-        
+        public static void SetPlayers(Player inpt_player)
+        {
 
-        
+            players.Add(inpt_player);
+        }
+        public static List<Player> GetPlayers()
+        {
+            return players;
+        }
+        public static int GetPlayersAmount()
+        {
+            return players.Count;
+        }
+        public static int GetFirstFreeIdentificator()
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (players[i] == null)
+                {
+                    return i;
+                }
+
+            }
+            return players.Count + 1;
+        }
+
+
+
+
 
     }
 }
