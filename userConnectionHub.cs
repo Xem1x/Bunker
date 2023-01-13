@@ -38,11 +38,7 @@ namespace BUNKER
             return clientId;
         }
 
-        public void Send(string name)
-        {
-            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            context.Clients.All.updateUsersOnlineCount(name);
-        }
+        
         public void AddCard(int user_id,string name)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
@@ -61,7 +57,15 @@ namespace BUNKER
 
                 GlobalVar.SetPlayers(player);
                 AddCard(player.user_id, player.username);
+               
             }
+            else
+            {
+                var player = GlobalVar.GetPlayerByName(username);
+                string clientId = GetClientId();
+                player.client_id = clientId;
+            }
+            
         }
         bool UserIsLoggedIn(string inpt_username)
         {
@@ -86,10 +90,28 @@ namespace BUNKER
 
             }
         }
-
-        public void LoadOwnCharacteristics()
+        public void SendCharToAll(int id, string clientId, string info)
         {
+            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
+            //context.Clients.All.loadInfo(id, info);
+            context.Clients.AllExcept(clientId).updateInfo(id, info);
+        }
+        public void ShareCharacteristics(string username,string info)
+        {
+            var sender_player = GlobalVar.GetPlayerByName(username);
+            SendCharToAll(sender_player.user_id, sender_player.client_id, info);
+        }
 
+        public void SendMessage(string user, int id)
+        {
+            
+            Clients.Client(user).loadInfo(id, "test");
+        }
+        public void LoadOwnCharacteristics(string nameOfPlayer)
+        {
+            string user = Context.ConnectionId;
+            var id = GlobalVar.GetPlayerByName(nameOfPlayer).user_id;
+            SendMessage(user,id);
         }
 
         public override System.Threading.Tasks.Task OnConnected()

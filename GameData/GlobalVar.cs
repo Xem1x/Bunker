@@ -30,6 +30,18 @@ namespace BUNKER
         {
             return players;
         }
+        public static Player GetPlayerByName(string name)
+        {
+            for (int i = 0; i < players.Count(); i++)
+            {
+                if (players[i].username == name)
+                {
+                    return (Player)players[i];
+                }
+
+            }
+            return null;
+        }
         public static int GetPlayersAmount()
         {
             return players.Count;

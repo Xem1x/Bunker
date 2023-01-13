@@ -19,7 +19,7 @@ namespace BUNKER
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(6);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(40);
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(2);
             
             Application["TotalOnlineUsers"] = 0;
