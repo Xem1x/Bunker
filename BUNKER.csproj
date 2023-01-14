@@ -326,6 +326,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="GameData\Characteristics.cs" />
     <Compile Include="GameData\Player_Generator.cs" />
     <Compile Include="GameData\GlobalVar.cs" />
     <Compile Include="GameData\Language.cs" />

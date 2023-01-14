@@ -3,9 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-wrapper">
         <div class="player-slider">
-            
         </div>
-        <asp:Button Text="JobShare" runat="server" />
+        
     </div>
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -86,26 +85,28 @@
                 
                 }
             }
-            game.client.loadInfo = function (card_id/*, div_id*/, characteristics)
+            game.client.loadInfo = function (card_id, div_id, characteristics)
             {
                 var div = document.getElementById(card_id);
-
-                var job = div.querySelector('#Job');
-
-                job.addEventListener('click', function handleClick(event) {
+                
+                var characteristics_link = div.querySelector('#'+div_id);
+                
+                characteristics_link.addEventListener('click', function handleClick(event) {
                     var button_card_id = event.target.parentElement.parentElement.parentElement.id;
-                    loadCharacteristicsToAll(game, button_card_id);
+                    var characteristics_to_share_id = event.target.parentElement.id;
+                    console.log(characteristics_to_share_id);
+                    loadCharacteristicsToAll(game, characteristics_to_share_id, button_card_id);
                 });
-                var val = job.querySelector(".param-value");
+                var val = characteristics_link.querySelector(".param-value");
                 val.innerHTML = characteristics;
                 
             }
 
-            game.client.updateInfo = function (card_id/*, div_id*/, characteristics) {
+            game.client.updateInfo = function (card_id, div_id, characteristics) {
                 var div = document.getElementById(card_id);
 
-                var job = div.querySelector('#Job');
-                var val = job.querySelector(".param-value");
+                var characteristics_link = div.querySelector('#' + div_id);
+                var val = characteristics_link.querySelector(".param-value");
                 val.innerHTML = characteristics;
 
             }
@@ -137,12 +138,12 @@
             }
 
 
-            function loadCharacteristicsToAll(userConnectionHub, id ) {
+            function loadCharacteristicsToAll(userConnectionHub, div_id,  id ) {
                 var div = document.getElementById(id);
-                var job = div.querySelector('#Job'); 
-                var val = job.querySelector(".param-value").innerHTML;
+                var characteristics_link = div.querySelector('#'+div_id); 
+                var val = characteristics_link.querySelector(".param-value").innerHTML;
                 var UserName = '<% = Session["Username"] %>';
-                userConnectionHub.server.shareCharacteristics(UserName, val);
+                userConnectionHub.server.shareCharacteristics(UserName, div_id, val);
 
             }
             

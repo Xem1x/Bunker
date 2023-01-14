@@ -19,6 +19,8 @@ namespace BUNKER
             return alreadyAssignedCharactr;
         }
 
+
+
         static List<Player> players = new List<Player>();
 
         public static void SetPlayers(Player inpt_player)

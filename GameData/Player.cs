@@ -7,19 +7,26 @@ namespace BUNKER.GameData
 {
     public class Player
     {
+        public Player()
+        {
+            job.name = "Job";
+            job.value = "defaultJob";
+            job.shared = false;
+            
+        }
         public int user_id { get; set; }
 
         public string username { get; set; }
 
         public string client_id { get; set; }
         
-        string health { get; set; }
-        string job { get; set; }
-        string phobia { get; set; }
-        string hobby { get; set; }
-        string additional_info { get; set; }
-        string knowledge { get; set; }
-        string luggage { get; set; }
+        Characteristics health { get; set; }
+        public Characteristics job { get; set; }
+        Characteristics phobia { get; set; }
+        Characteristics hobby { get; set; }
+        Characteristics additional_info { get; set; }
+        Characteristics knowledge { get; set; }
+        Characteristics luggage { get; set; }
 
     }
 }
