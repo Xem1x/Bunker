@@ -44,7 +44,7 @@
                     $(".player-slider").append('<div class="player-card-wrapper" id = ' + id +'>\
                         <div class="player-card-inner">\
                             <h3 class= "player-name" id = "player_name" >'+ name +' </h3> \
-                            <a id = "Job" >\
+                            <a id = "job" >\
                             <div class="param-name">Професія</div>\
                             <div class="param-value"></div>\
                             </a>\
@@ -91,7 +91,8 @@
                 
                 var characteristics_link = div.querySelector('#'+div_id);
                 
-                characteristics_link.addEventListener('click', function handleClick(event) {
+                characteristics_link.addEventListener('click', function handleClick(event)
+                {
                     var button_card_id = event.target.parentElement.parentElement.parentElement.id;
                     var characteristics_to_share_id = event.target.parentElement.id;
                     console.log(characteristics_to_share_id);

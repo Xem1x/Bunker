@@ -9,10 +9,7 @@ namespace BUNKER.GameData
     {
         public Player()
         {
-
-            job.name = "Job";
             job.value = "defaultJob";
-            job.shared = false;
             
         }
         public int user_id { get; set; }
@@ -21,13 +18,13 @@ namespace BUNKER.GameData
 
         public string client_id { get; set; }
         
-        Characteristics health { get; set; }
-        public Characteristics job { get; set; } = new Characteristics();
-        Characteristics phobia { get; set; }
-        Characteristics hobby { get; set; }
-        Characteristics additional_info { get; set; }
-        Characteristics knowledge { get; set; }
-        Characteristics luggage { get; set; }
+        Characteristics health { get; set; } = new Characteristics("health");
+        public Characteristics job { get; set; } = new Characteristics("job");
+        Characteristics phobia { get; set; } = new Characteristics("phobia");
+        Characteristics hobby { get; set; } = new Characteristics("hobby");
+        Characteristics additional_info { get; set; } = new Characteristics("additional_info");
+        Characteristics knowledge { get; set; } = new Characteristics("knowledge");
+        Characteristics luggage { get; set; } = new Characteristics("luggage");
 
     }
 }

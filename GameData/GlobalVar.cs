@@ -44,6 +44,18 @@ namespace BUNKER
             }
             return null;
         }
+        public static Player GetPlayerByClientId(string clientID)
+        {
+            for (int i = 0; i < players.Count(); i++)
+            {
+                if (players[i].client_id == clientID)
+                {
+                    return (Player)players[i];
+                }
+
+            }
+            return null;
+        }
         public static int GetPlayersAmount()
         {
             return players.Count;

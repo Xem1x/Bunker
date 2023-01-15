@@ -19,10 +19,9 @@ namespace BUNKER
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(40);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(10);
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(2);
             
-            Application["TotalOnlineUsers"] = 0;
         }
         void Application_End(object sender, EventArgs e)
         {
@@ -33,19 +32,7 @@ namespace BUNKER
 
         }
 
-        void Session_Start(object sender, EventArgs e)
-        {
-            Application.Lock();
-            Application["TotalOnlineUsers"] = (int)Application["TotalOnlineUsers"] + 1;
-            Application.UnLock();
-        }
-
-        void Session_End(object sender, EventArgs e)
-        {
-            Application.Lock();
-            Application["TotalOnlineUsers"] = (int)Application["TotalOnlineUsers"] - 1;
-            Application.UnLock();
-        }
+       
 
     }
 }

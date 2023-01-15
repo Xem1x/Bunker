@@ -135,6 +135,9 @@ namespace BUNKER
 
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
+            string currentPlayerConnectionId = Context.ConnectionId;
+            var player_left = GlobalVar.GetPlayerByClientId(currentPlayerConnectionId);
+            GlobalVar.GetPlayers().Remove(player_left);
             return base.OnDisconnected(stopCalled);
         }
 
