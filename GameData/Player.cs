@@ -10,7 +10,7 @@ namespace BUNKER.GameData
         public Player()
         {
 
-            job.name = "Job";
+            job.name = "job";
             job.value = "defaultJob";
             job.shared = false;
             

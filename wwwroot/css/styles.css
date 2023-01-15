@@ -27,6 +27,7 @@ h3{
     background-color: beige;
     padding: 5px;
     margin-bottom: 10px;
+    min-height: 35px;
 }
 .revealed{
     background-color: darkorange;
@@ -129,4 +130,6 @@ h3{
 
 .slide-in-left {
 }
-
+.slick-track{
+    min-width: 2000px;
+}
