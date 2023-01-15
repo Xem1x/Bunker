@@ -93,7 +93,7 @@ namespace BUNKER
         }
         public void TransferOwnCharacteristics(string userConnectionId, Player currentPlayer)
         {
-            SendOwnCharacteristicsToForm(userConnectionId, "Job", currentPlayer.job, currentPlayer.user_id);
+            SendOwnCharacteristicsToForm(userConnectionId, currentPlayer.job.name, currentPlayer.job.value, currentPlayer.user_id);
         }
         public void LoadOwnCharacteristics(string nameOfPlayer)
         {

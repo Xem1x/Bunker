@@ -9,6 +9,7 @@ namespace BUNKER.GameData
     {
         public Player()
         {
+
             job.name = "Job";
             job.value = "defaultJob";
             job.shared = false;
@@ -21,7 +22,7 @@ namespace BUNKER.GameData
         public string client_id { get; set; }
         
         Characteristics health { get; set; }
-        public Characteristics job { get; set; }
+        public Characteristics job { get; set; } = new Characteristics();
         Characteristics phobia { get; set; }
         Characteristics hobby { get; set; }
         Characteristics additional_info { get; set; }
