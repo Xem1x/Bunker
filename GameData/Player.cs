@@ -9,8 +9,16 @@ namespace BUNKER.GameData
     {
         public Player()
         {
-            job.value = "defaultJob";
-            
+            job.value = "default";
+            Player_info.Add(job);
+            Player_info.Add(bio);
+            Player_info.Add(health);
+            Player_info.Add(phobia);
+            Player_info.Add(hobby);
+            Player_info.Add(additional_info);
+            Player_info.Add(knowledge);
+            Player_info.Add(luggage);
+
         }
         public int user_id { get; set; }
 
@@ -18,8 +26,10 @@ namespace BUNKER.GameData
 
         public string client_id { get; set; }
         
+        public List<Characteristics> Player_info{ get; set; } = new List<Characteristics>();
+        Characteristics job { get; set; } = new Characteristics("job");
+        Characteristics bio { get; set; } = new Characteristics("bio");
         Characteristics health { get; set; } = new Characteristics("health");
-        public Characteristics job { get; set; } = new Characteristics("job");
         Characteristics phobia { get; set; } = new Characteristics("phobia");
         Characteristics hobby { get; set; } = new Characteristics("hobby");
         Characteristics additional_info { get; set; } = new Characteristics("additional_info");

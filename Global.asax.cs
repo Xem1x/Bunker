@@ -19,8 +19,8 @@ namespace BUNKER
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(10);
-            GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(2);
+            GlobalHost.Configuration.DisconnectTimeout = TimeSpan.FromSeconds(20);
+            GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(6);
             
         }
         void Application_End(object sender, EventArgs e)

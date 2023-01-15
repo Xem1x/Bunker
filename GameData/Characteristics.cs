@@ -12,7 +12,7 @@ namespace BUNKER.GameData
             name = name_inpt;
         }
         public string name { get; set; }
-        public string value { get; set; }
+        public string value { get; set; } = "test";
         public bool shared { get; set; } = false;
 
         

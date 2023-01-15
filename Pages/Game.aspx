@@ -54,7 +54,7 @@
                             <div class="param-name">Біо характеристики</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="heath" >\
+                            <a id ="health" >\
                             <div class="param-name">Хвороба</div>\
                             <div class="param-value"></div>\
                             </a>\
@@ -72,6 +72,10 @@
                             </a>\
                             <a id ="knowledge" >\
                             <div class="param-name">Знання</div>\
+                            <div class="param-value"></div>\
+                            </a>\
+                            <a id ="luggage" >\
+                            <div class="param-name">Багаж</div>\
                             <div class="param-value"></div>\
                             </a>\
                         </div>\
