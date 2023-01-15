@@ -7,9 +7,9 @@ namespace BUNKER.GameData
 {
     public class Characteristics
     {
-        public Characteristics(string value_inpt)
+        public Characteristics(string name_inpt)
         {
-            value = value_inpt;
+            name = name_inpt;
         }
         public string name { get; set; }
         public string value { get; set; }

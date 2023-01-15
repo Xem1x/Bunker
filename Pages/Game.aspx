@@ -90,12 +90,11 @@
             game.client.loadInfo = function (card_id, div_id, characteristics)
             {
                 var div = document.getElementById(card_id);
+                var characteristics_link = div.querySelector('#' + div_id);
                 
-                var characteristics_link = div.querySelector('#'+div_id);
                 characteristics_link.addEventListener('click', function handleClick(event) {
                     var button_card_id = event.target.parentElement.parentElement.parentElement.id;
                     var characteristics_to_share_id = event.target.parentElement.id;
-                    console.log(characteristics_to_share_id);
                     loadCharacteristicsToAll(game, characteristics_to_share_id, button_card_id);
                 });
                 var val = characteristics_link.querySelector(".param-value");
@@ -115,7 +114,10 @@
                 });
 
             }
-
+            game.client.deleteCard = function (card_id){
+                const element = document.getElementById(card_id);
+                element.remove();
+            }
 
 
             $.connection.hub.start().done(function () {

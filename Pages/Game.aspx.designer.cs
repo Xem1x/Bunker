@@ -13,19 +13,5 @@ namespace BUNKER.Pages
 
     public partial class Game
     {
-
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new BUNKER.SiteMaster Master
-        {
-            get
-            {
-                return ((BUNKER.SiteMaster)(base.Master));
-            }
-        }
     }
 }

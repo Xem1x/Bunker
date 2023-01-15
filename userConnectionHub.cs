@@ -132,12 +132,19 @@ namespace BUNKER
 
             return base.OnReconnected();
         }
-
+        void Delete(string id)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
+            //context.Clients.All.loadInfo(id, info);
+            context.Clients.All.deleteCard(id);
+        }
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
         {
             string currentPlayerConnectionId = Context.ConnectionId;
             var player_left = GlobalVar.GetPlayerByClientId(currentPlayerConnectionId);
+            Delete(player_left.user_id.ToString());
             GlobalVar.GetPlayers().Remove(player_left);
+            
             return base.OnDisconnected(stopCalled);
         }
 
