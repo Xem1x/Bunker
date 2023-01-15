@@ -118,16 +118,20 @@
                 });
 
             }
-            game.client.deleteCard = function (card_id){
-                const element = document.getElementById(card_id);
-                element.remove();
+            game.client.deleteCard = function (card_id) {
+                $(".player-slider").slick('slickRemove', card_id - 1);
+
+                //const element = document.getElementById(card_id);
+                //element.remove();
             }
 
+            
 
             $.connection.hub.start().done(function () {
+                
                 loadCards(game);
                 connectUser(game);
-                loadCharacteristicsToCurrentUser(game);
+                //loadCharacteristicsToCurrentUser(game);
                 
             });
 

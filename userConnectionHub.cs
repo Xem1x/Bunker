@@ -74,6 +74,8 @@ namespace BUNKER
 
                 GlobalVar.SetPlayers(player);
                 AddCard(player.user_id, player.username);
+                LoadOwnCharacteristics(username);
+                
 
             }
             else
@@ -81,6 +83,7 @@ namespace BUNKER
                 var player = GlobalVar.GetPlayerByName(username);
                 string clientId = GetClientId();
                 player.client_id = clientId;
+                LoadOwnCharacteristics(username);
             }
 
         }
