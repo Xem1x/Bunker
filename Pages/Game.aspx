@@ -24,51 +24,53 @@
             
 
             $('#displayname').val('*/<% = Session["Username"] %>/*');
-            $(".player-slider").slick({
-                slidesToShow: 1,
-                prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
-                nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
-
-            })
+            
             
         });
         $(function ()
         {
 
             var game = $.connection.userConnectionHub;
+            $(".player-slider").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+                nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
 
+            })
+            
             game.client.AddCard = function (id, name)
             {
                 if (!document.getElementById(id))
                 { 
-                    $(".player-slider").append('<div class="player-card-wrapper" id = ' + id +'>\
+                    $(".player-slider").slick('slickAdd', '<div class="player-card-wrapper" id = ' + id +'>\
                         <div class="player-card-inner">\
                             <h3 class= "player-name" id = "player_name" >'+ name +' </h3> \
                             <a id = "job" >\
                             <div class="param-name">Професія</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="Bio" >\
+                            <a id ="bio" >\
                             <div class="param-name">Біо характеристики</div>\
-                            <div class="param-value revealed">---</div>\
+                            <div class="param-value"></div>\
                             </a>\
-                            <a id ="Heath" >\
+                            <a id ="heath" >\
                             <div class="param-name">Хвороба</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="Phoby" >\
+                            <a id ="phobia" >\
                             <div class="param-name">Фобія</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="Hoby" >\
+                            <a id ="hobby" >\
                             <div class="param-name">Хобі</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="Dop_info" >\
+                            <a id ="additional_info" >\
                             <div class="param-name">Доп. інформація</div>\
                             <div class="param-value"></div>\
                             </a>\
-                            <a id ="knowlage" >\
+                            <a id ="knowledge" >\
                             <div class="param-name">Знання</div>\
                             <div class="param-value"></div>\
                             </a>\
@@ -81,18 +83,16 @@
                             <div class="card-name">Картка умови</div>\
                             <div class="card-description"></div>\
                         </div >\
-                   </div > ')
-                
+                   </div > ');
                 }
+                
             }
             game.client.loadInfo = function (card_id, div_id, characteristics)
             {
                 var div = document.getElementById(card_id);
                 
                 var characteristics_link = div.querySelector('#'+div_id);
-                
-                characteristics_link.addEventListener('click', function handleClick(event)
-                {
+                characteristics_link.addEventListener('click', function handleClick(event) {
                     var button_card_id = event.target.parentElement.parentElement.parentElement.id;
                     var characteristics_to_share_id = event.target.parentElement.id;
                     console.log(characteristics_to_share_id);
@@ -108,7 +108,11 @@
 
                 var characteristics_link = div.querySelector('#' + div_id);
                 var val = characteristics_link.querySelector(".param-value");
-                val.innerHTML = characteristics;
+                $(".player-slider").slick('slickGoTo', $("#"+card_id).attr("data-slick-index"), false);
+                $(val).each(function(){
+                    $(this).addClass("revealed");
+                    $(this).text(characteristics);
+                });
 
             }
 
@@ -127,6 +131,7 @@
                 userConnectionHub.server.connect(UserName);
             }
             function loadCards(userConnectionHub) {
+                
                 userConnectionHub.server.loadAllCards();
                 
             }
