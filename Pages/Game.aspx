@@ -14,8 +14,8 @@
                 <a id="vote-button">Vote</a>
                 <a id="skip-vote-button">Skip</a>
         </div>
-        <%--<div class="player-slider">
-        </div>--%>
+        <div class="player-slider">
+        </div>
         
     </div>
     <!--Script references. -->
