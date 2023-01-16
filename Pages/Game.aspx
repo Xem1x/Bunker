@@ -120,9 +120,6 @@
             }
             game.client.deleteCard = function (card_id) {
                 $(".player-slider").slick('slickRemove', card_id - 1);
-
-                //const element = document.getElementById(card_id);
-                //element.remove();
             }
 
             
@@ -131,7 +128,7 @@
                 
                 loadCards(game);
                 connectUser(game);
-                //loadCharacteristicsToCurrentUser(game);
+                
                 
             });
 
@@ -145,9 +142,7 @@
                 userConnectionHub.server.loadAllCards();
                 
             }
-            // fix 
             function loadCharacteristicsToCurrentUser(userConnectionHub) {
-                <%--console.log('<% = Session["Username"] %>');--%>
                 var UserName = '<% = Session["Username"] %>';
                 userConnectionHub.server.loadOwnCharacteristics(UserName);
 

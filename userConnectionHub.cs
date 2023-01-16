@@ -23,8 +23,16 @@ namespace BUNKER
         {
             for (int i = 0; i < GlobalVar.GetPlayers().Count; i++)
             {
-                AddCard(GlobalVar.GetPlayers()[i].user_id, GlobalVar.GetPlayers()[i].username);
-
+                var currentPlayer = GlobalVar.GetPlayers()[i];
+                AddCard(currentPlayer.user_id, currentPlayer.username);
+                foreach (var characteristics in currentPlayer.Player_info)
+                {
+                    if (characteristics.shared)
+                    {
+                        SendCharToAll(currentPlayer.user_id, currentPlayer.client_id, characteristics.name, characteristics.value);
+                    }
+                }
+                
             }
         }
 
@@ -75,8 +83,6 @@ namespace BUNKER
                 GlobalVar.SetPlayers(player);
                 AddCard(player.user_id, player.username);
                 LoadOwnCharacteristics(username);
-                
-
             }
             else
             {
@@ -115,12 +121,13 @@ namespace BUNKER
         public void SendCharToAll(int id, string clientId, string characteristic_div, string info)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            //context.Clients.All.loadInfo(id, info);
             context.Clients.AllExcept(clientId).updateInfo(id, characteristic_div, info);
         }
         public void ShareCharacteristics(string username, string characteristic_div, string info)
         {
             var sender_player = GlobalVar.GetPlayerByName(username);
+            var characteristic_to_share = sender_player.Player_info.Find(x => x.name == characteristic_div);
+            characteristic_to_share.shared = true;
             SendCharToAll(sender_player.user_id, sender_player.client_id, characteristic_div, info);
         }
 
@@ -141,7 +148,6 @@ namespace BUNKER
         void Delete(string id)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            //context.Clients.All.loadInfo(id, info);
             context.Clients.All.deleteCard(id);
         }
         public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
