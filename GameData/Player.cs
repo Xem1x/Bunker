@@ -25,7 +25,15 @@ namespace BUNKER.GameData
         public string username { get; set; }
 
         public string client_id { get; set; }
-        
+        bool voted_out { get; set; } = false;
+        public void VoteOut()
+        {
+            voted_out = true;
+        }
+        public bool IsVotedOut()
+        { 
+            return voted_out;
+        }
         public List<Characteristics> Player_info{ get; set; } = new List<Characteristics>();
         Characteristics job { get; set; } = new Characteristics("job");
         Characteristics bio { get; set; } = new Characteristics("bio");

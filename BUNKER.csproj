@@ -330,7 +330,7 @@
     <Compile Include="GameData\GlobalVar.cs" />
     <Compile Include="GameData\Language.cs" />
     <Compile Include="GameData\Player.cs" />
-    <Compile Include="GameData\Voting_play.cs" />
+    <Compile Include="GameData\Voting.cs" />
     <Compile Include="GameData\SQLClient.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -500,4 +500,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-</Project>
+</Project>     

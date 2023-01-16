@@ -2,8 +2,20 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-wrapper">
-        <div class="player-slider">
+                  
+        <a id="menu-button"> Меню</a>
+            <div id='menu' class="menu slide-in-left">
+             <div>
+                 <select id="voting">
+                     <option>TestUser</option>
+                     <option>TestUser2</option>
+                 </select>
+             </div>
+                <a id="vote-button">Vote</a>
+                <a id="skip-vote-button">Skip</a>
         </div>
+        <%--<div class="player-slider">
+        </div>--%>
         
     </div>
     <!--Script references. -->
@@ -122,6 +134,18 @@
                 $(".player-slider").slick('slickRemove', card_id - 1);
             }
 
+            game.client.makeInactiveCard = function (card_id) {
+                //create function do make selected card inactive;
+            }
+
+            var vote_button = document.getElementById('vote-button');
+            vote_button.addEventListener('click', sendVote);
+
+            function sendVote() {
+                let votingDropBox = document.getElementById('voting');
+                var value = votingDropBox.options[votingDropBox.selectedIndex].value;
+                console.log(value);
+            }
             
 
             $.connection.hub.start().done(function () {
@@ -157,7 +181,14 @@
                 userConnectionHub.server.shareCharacteristics(UserName, div_id, val);
 
             }
-            
+            var menuLink = document.getElementById('menu-link');
+            menuLink.addEventListener('click', openMenu, false);
+
+            function openMenu(e) {
+                e.preventDefault();
+                let menu = document.getElementById('menu');
+                menu.style.left = 0;
+            }
             
         });
         

@@ -18,10 +18,6 @@ namespace BUNKER.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            
-            
-            //player.name.set = Session["Name"].ToString();
-
 
         }
 

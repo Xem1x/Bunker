@@ -131,7 +131,23 @@ namespace BUNKER
             SendCharToAll(sender_player.user_id, sender_player.client_id, characteristic_div, info);
         }
 
+        public void VoteOut(int card_id)
+        {
+            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
+            context.Clients.All.makeInactiveCard(card_id);
+        }
         
+        public void RegisterVote(string username)
+        {
+
+            Voting.Vote(username);
+            if(Voting.CountOfVotes() == GlobalVar.GetPlayers().Count())
+            {
+                var mostSelectedPlayer = Voting.GetMostSelectedUser();
+                var playerToVoteOut = GlobalVar.GetPlayerByName(mostSelectedPlayer);
+                VoteOut(playerToVoteOut.user_id);
+            }
+        }
 
         public override System.Threading.Tasks.Task OnConnected()
         {
