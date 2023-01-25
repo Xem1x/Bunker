@@ -9,7 +9,19 @@ namespace BUNKER.GameData
     {
         public Player()
         {
-            job.value = "default";
+            AddVariablesToList();
+            job.value = Player_Generator.GetJob();
+            bio.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+            job.value = Player_Generator.GetJob();
+
+        }
+        void AddVariablesToList()
+        {
             Player_info.Add(job);
             Player_info.Add(bio);
             Player_info.Add(health);
@@ -18,7 +30,6 @@ namespace BUNKER.GameData
             Player_info.Add(additional_info);
             Player_info.Add(knowledge);
             Player_info.Add(luggage);
-
         }
         public int user_id { get; set; }
 

@@ -5,6 +5,9 @@
                   
         <a id="menu-button"> Меню</a>
             <div id='menu' class="menu slide-in-left">
+                <div>
+                    <a  id ="start_voting">Start Voting</a>
+                </div>
              <div>
                  <select id="voting">
                      <option>TestUser</option>
@@ -14,8 +17,8 @@
                 <a id="vote-button">Vote</a>
                 <a id="skip-vote-button">Skip</a>
         </div>
-        <%--<div class="player-slider">
-        </div>--%>
+        <div class="player-slider">
+        </div>
         
     </div>
     <!--Script references. -->
@@ -134,10 +137,19 @@
                 $(".player-slider").slick('slickRemove', card_id - 1);
             }
 
-            game.client.makeInactiveCard = function (card_id) {
-                //create function do make selected card inactive;
-            }
+            game.client.changeInactive = function (div_id) {
+                let elem = document.getElementById(div_id);
 
+                var isDisabled = !elem.disabled;
+                elem.disabled = isDisabled;
+            }
+            game.client.clearVotingDropBox = function () {
+                var select = document.getElementById("voting");
+                var length = select.options.length;
+                for (i = length - 1; i >= 0; i--) {
+                    select.options[i] = null;
+                }
+            }
             var vote_button = document.getElementById('vote-button');
             vote_button.addEventListener('click', sendVote);
 
@@ -145,8 +157,24 @@
                 let votingDropBox = document.getElementById('voting');
                 var value = votingDropBox.options[votingDropBox.selectedIndex].value;
                 console.log(value);
+                game.server.registerVote(value);
             }
+
             
+            var start_voting_button = document.getElementById('start_voting');
+            start_voting_button.addEventListener('click', startVoting);
+
+             
+            
+            function startVoting() {
+                game.server.startVoting();
+            }
+            game.client.loadPlayersInDropBox = function (player_name) {
+                var votingDropBox = document.getElementById("voting");
+                var option = document.createElement("option");
+                option.text = player_name;
+                votingDropBox.add(option);
+            }
 
             $.connection.hub.start().done(function () {
                 
@@ -181,7 +209,7 @@
                 userConnectionHub.server.shareCharacteristics(UserName, div_id, val);
 
             }
-            var menuLink = document.getElementById('menu-link');
+            var menuLink = document.getElementById('menu-button');
             menuLink.addEventListener('click', openMenu, false);
 
             function openMenu(e) {

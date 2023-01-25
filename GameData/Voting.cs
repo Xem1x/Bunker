@@ -8,7 +8,7 @@ namespace BUNKER.GameData
     public class Voting
     {
         static Dictionary<string,int> votes_dictionary = new Dictionary<string, int>();
-        //
+        
         public static void Vote(string var)
         {
             if (votes_dictionary.ContainsKey(var))
@@ -23,6 +23,11 @@ namespace BUNKER.GameData
         }
         public static int CountOfVotes()
         {
+            var countOfUsers = 0;
+            foreach (var user in votes_dictionary)
+            {
+                countOfUsers += user.Value;
+            }
             return votes_dictionary.Count;
         }
         public static void ClearVoteList()
@@ -41,6 +46,7 @@ namespace BUNKER.GameData
                 { 
                     mostSelectedUser = user;
                 }
+                
             }
             return mostSelectedUser.Key;
         }

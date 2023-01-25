@@ -4,6 +4,7 @@ using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.AspNet.SignalR.Transports;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -134,7 +135,9 @@ namespace BUNKER
         public void VoteOut(int card_id)
         {
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
-            context.Clients.All.makeInactiveCard(card_id);
+            context.Clients.All.changeInactive(card_id);
+            context.Clients.All.clearVotingDropBox();
+            Voting.ClearVoteList();
         }
         
         public void RegisterVote(string username)
@@ -145,10 +148,26 @@ namespace BUNKER
             {
                 var mostSelectedPlayer = Voting.GetMostSelectedUser();
                 var playerToVoteOut = GlobalVar.GetPlayerByName(mostSelectedPlayer);
+                playerToVoteOut.VoteOut();
                 VoteOut(playerToVoteOut.user_id);
             }
         }
+        public void StartVoting()
+        {
 
+            var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
+            context.Clients.All.clearVotingDropBox();
+            context.Clients.All.changeInactive("start_voting");
+            foreach (var player in GlobalVar.GetPlayers())
+            {
+                if (!player.IsVotedOut())
+                {
+                    context.Clients.All.loadPlayersInDropBox(player.username);
+                }
+            }
+
+            
+        }
         public override System.Threading.Tasks.Task OnConnected()
         {
             

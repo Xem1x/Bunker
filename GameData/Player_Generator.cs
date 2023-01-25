@@ -20,11 +20,35 @@ namespace BUNKER.GameData
         /// 
         /// 
         /// 
-        
+        static List<string> gender_list  = new List<string>{ "Чоловік", "Жінка" };
+
+        static List<string> bio_pregnant_women = new List<string> { "Вагітна", "", "", "", "", "", "" };
+        static List<string> bio_sexual_char = new List<string> { "Асексуальний", "", "" };
         static Player_Generator()
         {
             
             
+        }
+        static public string GenerateBioChacteristics()
+        {
+            Random random = new Random();
+            var age = random.Next(18,85);
+            var gender_random = random.Next(gender_list.Count());
+            var gender = gender_list[gender_random];
+            var pregnancy = "";
+            if (gender.ToString() == "Жінка")
+            {
+                var pregnancy_random = random.Next(gender_list.Count());
+                pregnancy = bio_pregnant_women[pregnancy_random];
+                
+            }
+            if(pregnancy == "")
+            {
+                var sexual_random = random.Next(bio_sexual_char.Count());
+                var sexual = bio_pregnant_women[sexual_random];
+                
+            }
+            return age.ToString() + " " + gender + " ";
         }
         static protected string GenerateRandomFromList(List<string> res_list)
         {
@@ -44,7 +68,7 @@ namespace BUNKER.GameData
 
         static public string GetJob()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Job from Char";
             var temp = GenerateCharacteristic();
             GlobalVar.alreadyAssignedCharactr.Add(temp);
             return temp;
@@ -53,42 +77,42 @@ namespace BUNKER.GameData
 
         static public string GetHealth()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Health from Char";
             return GenerateCharacteristic();
         }
 
 
         static public string GetPhobia()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Phobia from Char";
             return GenerateCharacteristic();
         }
 
 
         static public string GetHobby()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Hobby from Char";
             return GenerateCharacteristic();
         }
 
 
         static public string GetAdditionalInfo()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Additional_info from Char";
             return GenerateCharacteristic();
         }
 
 
         static public string GetKnowledge()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Knowledge from Char";
             return GenerateCharacteristic();
         }
 
 
         static public string GetLuggage()
         {
-            request = "Select Characteristics_1 from Test_table";
+            request = "Select Backpack from Char";
             return GenerateCharacteristic();
         }
 
