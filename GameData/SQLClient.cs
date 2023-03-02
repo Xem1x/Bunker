@@ -51,6 +51,7 @@ namespace BUNKER.GameData
             {
                 results.Add(reader.GetString(0));
             }
+            reader.Close();
             return results;
         }
     }

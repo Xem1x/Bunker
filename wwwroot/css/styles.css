@@ -115,17 +115,21 @@ h3{
 
 
 .menu {
+    
     display: flex;
-    width: 200px;
+    width: 250px;
     height: 500px;
-    border: solid red;
+    border-radius: 5px;
     transition: 2s;
 }
 
 #menu {
     /*     display: none; */
+    z-index: 1;
     left: -250px;
     position: absolute;
+    background-color: darkgray;
+
 }
 
 .slide-in-left {

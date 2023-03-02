@@ -11,13 +11,13 @@ namespace BUNKER.GameData
         {
             AddVariablesToList();
             job.value = Player_Generator.GetJob();
-            bio.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
-            job.value = Player_Generator.GetJob();
+            bio.value = Player_Generator.GenerateBioChacteristics();
+            health.value = Player_Generator.GetHealth();
+            phobia.value = Player_Generator.GetPhobia();
+            hobby.value = Player_Generator.GetHobby();
+            additional_info.value = Player_Generator.GetAdditionalInfo();
+            knowledge.value = Player_Generator.GetKnowledge();
+            luggage.value = Player_Generator.GetLuggage();
 
         }
         void AddVariablesToList()

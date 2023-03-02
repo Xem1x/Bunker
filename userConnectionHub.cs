@@ -134,6 +134,7 @@ namespace BUNKER
 
         public void VoteOut(int card_id)
         {
+
             var context = GlobalHost.ConnectionManager.GetHubContext<UserConnectionHub>();
             context.Clients.All.changeInactive(card_id);
             context.Clients.All.clearVotingDropBox();

@@ -26,7 +26,7 @@ namespace BUNKER.GameData
         static List<string> bio_sexual_char = new List<string> { "Асексуальний", "", "" };
         static Player_Generator()
         {
-            
+            Connect();
             
         }
         static public string GenerateBioChacteristics()
